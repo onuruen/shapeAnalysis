@@ -34,7 +34,7 @@ hit_miss = cv2.morphologyEx(
     binary.astype(np.uint8),
     cv2.MORPH_HITMISS,
     hmt_kernel_correct,
-    anchor=(-1, -1)   # <-- düzeltildi
+    anchor=(-1, -1)
 )
 
 # Print detected square locations
@@ -43,16 +43,26 @@ print(f"Detected squares: {len(locs)}")
 for loc in locs:
     print(f"  Square location: row={loc[0]}, col={loc[1]}")
 
+# Section 2: Dilation to recover the squares
+# Kernel: 4x4 with all 1s, anchor at bottom-right (3, 3)
+dilation_kernel = np.ones((4, 4), dtype=np.uint8)
+dilated = cv2.dilate(hit_miss.astype(np.uint8), dilation_kernel, anchor=(3, 3))
+
 # Visualize
-plt.figure(figsize=(10, 5))
-plt.subplot(1, 2, 1)
+plt.figure(figsize=(15, 5))
+plt.subplot(1, 3, 1)
 plt.title('Original')
 plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
 plt.axis('off')
 
-plt.subplot(1, 2, 2)
+plt.subplot(1, 3, 2)
 plt.title('Hit-or-Miss (only squares)')
 plt.imshow(hit_miss, cmap='gray')
+plt.axis('off')
+
+plt.subplot(1, 3, 3)
+plt.title('Dilation (recovered squares)')
+plt.imshow(dilated, cmap='gray')
 plt.axis('off')
 
 plt.tight_layout()
