@@ -141,13 +141,13 @@ Place `Shapes1.bmp` inside an `images/` directory relative to the script. Three 
 
 ---
 
-## ⭐ ═══════════════════════════════════════════════════════════════ ⭐
+## ⭐ ══════════════════════════════════════════════ ⭐
 
-# Morphological Object Detection with Hit-or-Miss Transform (Deutsch)
+# Morphologische Objekterkennung mit Hit-or-Miss-Transform
 
-## ⭐ ═══════════════════════════════════════════════════════════════ ⭐
+## ⭐ ══════════════════════════════════════════════ ⭐
 
-Eine Übung zur Computer Vision, die morphologische Operationen und das **Hit or Miss Transform (HMT)** für formenspezifische Objekterkennung und sequentielle Pixelmanipulation mit OpenCV untersucht.
+Eine Übung zur Computer Vision, die morphologische Operationen und das **Hit-or-Miss-Transform (HMT)** für formenspezifische Objekterkennung und sequentielle Pixelmanipulation mit OpenCV untersucht.
 
 ---
 
