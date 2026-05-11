@@ -95,5 +95,25 @@ axes2[3].imshow(diff_no_l_shapes, cmap='gray')
 axes2[3].set_title('Difference: Squares and Hollow Circles')
 axes2[3].axis('off')
 
+
+# ── SECTION 3: HOLLOW CIRCLES ONLY ───────────────────────────────────────────
+hollow_only = cv2.subtract(diff_no_squares, recovered_l_shapes_255)
+
+# ── FIGURE 3: HOLLOW CIRCLE ANALYSIS ─────────────────────────────────────────
+fig3, axes3 = plt.subplots(1, 3, figsize=(15, 5))
+fig3.suptitle('Hollow Circle Extraction', fontsize=14, fontweight='bold')
+
+axes3[0].imshow(diff_no_squares, cmap='gray')
+axes3[0].set_title('Hollow + L-shapes')
+axes3[0].axis('off')
+
+axes3[1].imshow(recovered_l_shapes_255, cmap='gray')
+axes3[1].set_title('L-shapes Mask (to subtract)')
+axes3[1].axis('off')
+
+axes3[2].imshow(hollow_only, cmap='gray')
+axes3[2].set_title('Hollow Circles Only')
+axes3[2].axis('off')
+
 plt.tight_layout()
 plt.show()
